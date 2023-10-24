@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="header">
+        <div class="title">
+            <h1>PassKey*</h1>
+        </div>
+    </section>
+
+    <section class="body-section">
+        <div class="parent-card">
+            <div class="button-area">
+                <button class="button generate-pass-btn">Generate Password</button>
+                <button class="button password-strength-btn">Password Strength</button>
+            </div>
+
+            <div class="display-data">
+                <div class="pass-gen">
+                    <p class="password-p"></p>
+                    <button onclick="displayPassword()" class="pass-creator">Generate</button>
+                </div>
+
+                <div class="pass-checker">
+                    <p class="password-c password-checker-para"></p>
+                    <input class="checker-input" type="text" placeholder="Enter any Password!">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
