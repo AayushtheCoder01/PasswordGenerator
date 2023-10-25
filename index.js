@@ -21,21 +21,45 @@ password_strength_btn.addEventListener("click", function(e) {
 
 //function for checking the password strength.
 function check_strength() {
+
     let input = document.querySelector("input").value;
     let splitted_input = input.split("")
 
     let password_type = ""
 
-    if (splitted_input.length <= 5) {
+    let numbers = ["0","1","2","3","4","5","6","7","8","9"];
+    let special_char = ['!', '@', '#', '$', '%', '^', '&', '*'];
+
+
+    function containsNumberLoop() {
+        for (let i = 0; i < splitted_input.length; i++) {
+            let included_num = numbers[i]
+          if (splitted_input.includes(included_num)) {
+            return true;
+          }
+        }
+      }
+    function containsSpecialCharLoop() {
+        for (let i = 0; i < splitted_input.length; i++) {
+            let included_char = special_char[i]
+          if (splitted_input.includes(included_char)) {
+            return true;
+          }
+        }
+      }
+
+    if (splitted_input.length <= 6) {
         password_type = "weak"
         password_checker_para.style.color = "red"
     }
-    if (splitted_input.length > 5) {
+    let conatins_num = containsNumberLoop()
+    if (splitted_input.length > 6 && conatins_num === true) {
         password_type = "moderate"
         password_checker_para.style.color = "orange"
 
     }
-    if (splitted_input.length > 7) {
+    let contains_special_char = containsSpecialCharLoop()
+    if (splitted_input.length > 9  && conatins_num === true && contains_special_char === true) {
         password_type = "strong"
         password_checker_para.style.color = "green"
     }
@@ -46,12 +70,6 @@ function check_strength() {
 document.addEventListener("keydown", function(e) {
     check_strength()
 })
-
-
-
-
-
-
 
 
 // hiding elements for the first view.
